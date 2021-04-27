@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <style type="text/css">
+      body { background-color: #fff; }
+    
+      .transparent75 {
+        filter: alpha(Opacity=75); /* Полупрозрачность для IE */
+        opacity: 0.75; /* Полупрозрачность для других браузеров */ 
+      }
+      .transparent0 {
+        filter: alpha(Opacity=0);
+        opacity: 0; 
+      }
+      
+    </style>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-3">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" data-test="logo" href="{% url 'index' %}">Stepik Travel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav" data-test="navigation">
+            {% for d_key, d_item in departures.items %}
+
+                <li class="nav-item">
+                    <a class="nav-link dropdown" href="{% url 'departure' d_key %}" data-test="navlink">{{ d_item }}</a>
+                </li>
+
+            {% endfor %}
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
