@@ -1,8 +1,6 @@
 ### Проект по бронированию туров
 #### Technologies: Python, Django, Bootstrap
 
-#### Посмотреть по ссылке: https://travel-rent-sys.herokuapp.com/
-
 #### Сайт состоит из 3 страниц:
 
 **Главная страница**
